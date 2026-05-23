@@ -6,5 +6,8 @@ RETURNING *;
 -- name: FetchFeeds :many
 SELECT * FROM feeds;
 
+-- name: FetchFeedByUrl :one
+SELECT * FROM feeds WHERE url=$1;
+
 -- name: FetchFeedUsers :many
 SELECT * FROM users INNER JOIN feeds ON users.id = feeds.user_id;
